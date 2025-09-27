@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitectura de Clústeres y Continuidad del Negocio</title>
+<style>
+/* ---------- FONDO ANIMADO ---------- */
+@keyframes gradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(-45deg, #00b4db, #0083b0, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    animation: gradiente 15s ease infinite;
+    color: #fdfdfd;
+    line-height: 1.6;
+}
+h1, h2, h3, h4 {
+    margin-top: 0;
+    color: #ffe600;
+}
+p, li {
+    color: #f5f5f5;
+}
+header.portada {
+    text-align: center;
+    padding: 40px;
+}
+header .logo {
+    width: 120px;
+}
+header .foto {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 4px solid white;
+}
+nav {
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #ffe600;
+}
+
+/* ---------- CARDS DE SECCIONES ---------- */
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+section h2 {
+    border-bottom: 2px solid #ffe600;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+ul, ol {
+    margin-left: 20px;
+}
+a {
+    color: #ffe600;
+    text-decoration: underline;
+}
+img.ilustracion {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<!-- ---------- PORTADA ---------- -->
+<header class="portada">
+    <img src="img/LOGO_SENA.jpg" alt="Logo SENA" class="logo">
+    <h1>Arquitectura de Clústeres y Planes de Continuidad del Negocio</h1>
+    <img src="img/Jhon_Mejia.jpg" alt="Foto de Jhon Mejia" class="foto">
+    <p><strong>Autor:</strong> Jhon Jairo Mejia Avila – Aprendiz SENA</p>
+    <p><strong>Programa:</strong> Tecnólogo en Análisis y Desarrollo de Software - 2885525</p>
+    <p><strong>Fecha:</strong> Septiembre 2025</p>
+</header>
+
+<!-- ---------- MENÚ ---------- -->
+<nav>
+    <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#objetivo">Objetivo</a></li>
+        <li><a href="#desarrollo">Desarrollo</a></li>
+        <li><a href="#conclusiones">Conclusiones</a></li>
+        <li><a href="#referencias">Referencias</a></li>
+    </ul>
+</nav>
+
+<!-- ---------- SECCIONES ---------- -->
+
+<section id="introduccion">
+<h2>Introducción</h2>
+<p>En el contexto de la industria del software, la alta disponibilidad, la continuidad del negocio y la recuperación ante desastres son aspectos críticos. 
+Las arquitecturas de clústeres permiten mantener los servicios en funcionamiento incluso frente a fallas. 
+Este documento describe los conceptos fundamentales de clústeres, análisis de riesgo e impacto, gestión de prioridades, RPO, RTO, gestión de crisis y pruebas de operación, vinculándolos con el desarrollo de software y la administración de infraestructura.</p>
+<img src="img/cluster-diagram.jpg" alt="Diagrama de un clúster" class="ilustracion">
+</section>
+
+<section id="objetivo">
+<h2>Objetivo</h2>
+<p>Presentar de forma clara los conceptos relacionados con arquitecturas de clústeres y las estrategias de continuidad del negocio en el área de análisis y desarrollo de software, describiendo sus características, tipos, ventajas y desventajas.</p>
+</section>
+
+<section id="desarrollo">
+<h2>Desarrollo</h2>
+
+<h3>1. Arquitectura de Clústeres</h3>
+<p>Un <strong>clúster</strong> es un conjunto de servidores o nodos interconectados que trabajan como una sola unidad lógica para ofrecer <em>alta disponibilidad</em>, <em>balanceo de carga</em> o <em>procesamiento paralelo</em>.</p>
+
+<h4>Herramientas y tecnologías usadas en una arquitectura de clústeres:</h4>
+<ul>
+<li><strong>Sistemas operativos:</strong> <a href="https://www.redhat.com/en" target="_blank">Linux Red Hat</a>, <a href="https://ubuntu.com/server" target="_blank">Ubuntu Server</a>, Windows Server.</li>
+<li><strong>Software de clúster:</strong> <a href="https://kubernetes.io" target="_blank">Kubernetes</a>, <a href="https://hadoop.apache.org" target="_blank">Apache Hadoop</a>, <a href="https://www.open-mpi.org/" target="_blank">OpenMPI</a>, <a href="https://docs.docker.com/engine/swarm/" target="_blank">Docker Swarm</a>.</li>
+<li><strong>Herramientas de monitoreo:</strong> <a href="https://prometheus.io/" target="_blank">Prometheus</a>, <a href="https://grafana.com/" target="_blank">Grafana</a>, <a href="https://www.nagios.org/" target="_blank">Nagios</a>.</li>
+<li><strong>Almacenamiento compartido:</strong> <a href="https://www.gluster.org/" target="_blank">GlusterFS</a>, <a href="https://ceph.io/en/" target="_blank">Ceph</a>.</li>
+</ul>
+
+<h4>Características de un Clúster</h4>
+<ul>
+<li>Alta disponibilidad y tolerancia a fallos.</li>
+<li>Escalabilidad horizontal.</li>
+<li>Administración centralizada.</li>
+<li>Balanceo de carga.</li>
+</ul>
+
+<h4>Tipos de Clústeres</h4>
+<ul>
+<li><strong>Alta disponibilidad (HA):</strong> garantiza continuidad del servicio.</li>
+<li><strong>Balanceo de carga:</strong> distribuye el tráfico entre varios nodos.</li>
+<li><strong>Computación de alto rendimiento (HPC):</strong> para cálculos intensivos.</li>
+<li><strong>Clúster de almacenamiento:</strong> enfocado en la gestión de datos.</li>
+</ul>
+
+<h4>Tipos de procesamiento</h4>
+<ul>
+<li><strong>Paralelo:</strong> varias tareas simultáneas.</li>
+<li><strong>Distribuido:</strong> diferentes nodos procesan datos en diferentes ubicaciones.</li>
+</ul>
+
+<h4>Ventajas</h4>
+<ul>
+<li>Continuidad del servicio y reducción de tiempo de inactividad.</li>
+<li>Mayor rendimiento y escalabilidad.</li>
+<li>Flexibilidad en el uso de recursos.</li>
+</ul>
+
+<h4>Desventajas</h4>
+<ul>
+<li>Costo de implementación y mantenimiento.</li>
+<li>Complejidad en la administración.</li>
+<li>Requiere personal capacitado.</li>
+</ul>
+
+<h3>2. Conceptos clave de continuidad del negocio</h3>
+<ul>
+<li><strong>Análisis de riesgo:</strong> Identificación de amenazas que pueden afectar la infraestructura o el software.</li>
+<li><strong>Análisis de impacto:</strong> Determina consecuencias económicas y operativas ante interrupciones.</li>
+<li><strong>Gestión de prioridad:</strong> Clasifica servicios críticos para restaurarlos primero.</li>
+<li><strong>Recuperación de desastres (DR):</strong> Estrategias y procedimientos para restaurar operaciones tras un incidente.</li>
+<li><strong>RPO (Recovery Point Objective):</strong> Punto máximo de datos que se puede perder medido en tiempo.</li>
+<li><strong>RTO (Recovery Time Objective):</strong> Tiempo máximo aceptable para restablecer el servicio.</li>
+<li><strong>Planes de continuidad del negocio (BCP):</strong> Políticas y acciones para mantener operaciones durante y después de una crisis.</li>
+<li><strong>Gestión de crisis:</strong> Coordinación de acciones para mitigar el impacto.</li>
+<li><strong>Pruebas de operación:</strong> Simulaciones y pruebas para verificar que los planes funcionen.</li>
+</ul>
+
+<img src="img/rpo-rto.jpg" alt="Gráfico RPO y RTO" class="ilustracion">
+</section>
+
+<section id="conclusiones">
+<h2>Conclusiones</h2>
+<p>El uso de clústeres y planes de continuidad del negocio son esenciales para garantizar la disponibilidad de los servicios de software en entornos críticos. 
+Implementar estrategias de recuperación, con objetivos claros de <strong>RPO</strong> y <strong>RTO</strong>, asegura que las organizaciones mantengan la operación aun frente a incidentes graves.</p>
+</section>
+
+<section id="referencias">
+<h2>Referencias</h2>
+<ul>
+<li><a href="https://kubernetes.io" target="_blank">Kubernetes – Documentación oficial</a></li>
+<li><a href="https://hadoop.apache.org" target="_blank">Apache Hadoop – Sitio oficial</a></li>
+<li><a href="https://prometheus.io/" target="_blank">Prometheus – Monitoreo de sistemas</a></li>
+<li><a href="https://grafana.com/" target="_blank">Grafana – Visualización de datos</a></li>
+<li><a href="https://www.nagios.org/" target="_blank">Nagios – Monitoreo de redes y servidores</a></li>
+<li><a href="https://ceph.io/en/" target="_blank">Ceph – Almacenamiento distribuido</a></li>
+</ul>
+</section>
+
+<!-- ---------- FOOTER ---------- -->
+<footer>
+<p>&copy; 2025 Jhon Mejia - SENA</p>
+</footer>
+
+</body>
+</html>
